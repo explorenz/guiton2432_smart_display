@@ -4,12 +4,15 @@
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-Integration-blueviolet.svg)](https://www.home-assistant.io/)
 [![openHASP Studio](https://img.shields.io/badge/UI%20Designer-openHASP%20Studio-cyan.svg)](https://open-hasp-studio.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Repo](https://img.shields.io/badge/GitHub-Repo-181717.svg?logo=github)](https://github.com/explorenz/guiton2432_smart_display)
+[![Live Site](https://img.shields.io/badge/GitHub%20Pages-Live%20Site-222.svg?logo=githubpages)](https://explorenz.github.io/guiton2432_smart_display/)
 
 A compact, highly capable **\$15 smart desk display** based on the **Guition JC2432W328** (ESP32, 2.8" 240x320 capacitive touch LCD). Integrated with **Home Assistant** via **openHASP** to display desk climate, Claude AI API token burn, BambuLab 3D printer real-time progress, and ambient status notifications using the onboard RGB moodlight.
 
 The UI was designed with **[openHASP Studio](https://open-hasp-studio.vercel.app/)**, a drag-and-drop visual editor for openHASP layouts that I built (still a work in progress, but already functional). I've also contributed to the openHASP firmware build files that bring official support for the Guition JC2432W328 hardware.
 
-> 🌐 **Live Website**: Check out the interactive display preview hosted on GitHub Pages!
+> 🌐 **Live Website**: Check out the [interactive display preview hosted on GitHub Pages](https://explorenz.github.io/guiton2432_smart_display/)!
+> 📦 **Repository**: [github.com/explorenz/guiton2432_smart_display](https://github.com/explorenz/guiton2432_smart_display)
 
 <p align="center">
   <img src="ref_images/Screen_front_on.jpg" alt="Guition JC2432W328 desk display, assembled and running, with the RGB moodlight lit blue" width="600">
@@ -45,8 +48,8 @@ The UI was designed with **[openHASP Studio](https://open-hasp-studio.vercel.app
 | **Microcontroller** | ESP32 (Dual Core, WiFi & BT) | ESP32-WROOM |
 | **Display** | 2.8" TFT LCD (240x320 resolution) | ST7789 display controller |
 | **Touch Screen** | Capacitive Touch | GT911 touch controller |
-| **Moodlight LED** | RGB LED (GPIO 4 / 16 / 17) | Onboard rear/backlight status LED |
-| **Enclosure** | 3D Printed Desk Stand | *MakerWorld model link coming soon* |
+| **Moodlight LED** | RGB LED (GPIO 4 / 16 / 17) | Onboard status LED |
+| **Enclosure** | 3D Printed Desk Case | [MakerWorld model](https://makerworld.com/en/models/3309718-guition-jc2432w328-smart-desk-display-openhasp) |
 
 Official hardware docs: [openHASP Guition JC2432W328 Guide](https://www.openhasp.com/0.7.0/hardware/guition/jc2432w328/)
 
@@ -107,7 +110,7 @@ Import `home-assistant/automations.yaml` as well for automatic Moodlight status 
 
 ## 📦 3D Printable Enclosure
 
-A custom 3D printed desktop stand with a rear light diffuser for the moodlight LED is available on MakerWorld (*Link publishing soon*).
+A custom 3D printed, snap-fit desktop case with a light diffuser for the moodlight LED is available on MakerWorld: [Guition JC2432W328 Smart Desk Display (openHASP)](https://makerworld.com/en/models/3309718-guition-jc2432w328-smart-desk-display-openhasp).
 
 ---
 
