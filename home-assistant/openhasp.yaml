@@ -1,0 +1,65 @@
+openhasp:
+  deskplate:
+    objects:
+      - obj: "p0b1"
+        properties:
+          "text": '{{ now().strftime("%H:%M") }}'
+      - obj: "p1b3"
+        properties:
+          "text": "{{ states('sensor.sonoff_humidity_sensor_temperature') }}°C"
+      - obj: "p1b4"
+        properties:
+          "text": "{{ states('sensor.sonoff_snzb_02dr2_temperature') }}°C"
+      - obj: "p1b6"
+        properties:
+          "text": "{{ state_attr('weather.home', 'temperature') }}°C"
+      - obj: "p1b1"
+        properties:
+          "text": "{{ states('sensor.living_room_temperature_and_humidity_sensor_temperature') }}°C"
+      - obj: "p1b5"
+        properties:
+          "text": '{{ now().strftime("%a %d %b") }}'
+      - obj: "p2b1"
+        properties:
+          "src": "{{ state_attr('media_player.living_room', 'entity_picture') }}"
+      - obj: "p2b2"
+        properties:
+          "text": "{{ state_attr('media_player.living_room', 'media_artist') | default('No Media', true) }}"
+      - obj: "p2b3"
+        properties:
+          "text": "{{ state_attr('media_player.living_room', 'media_title') | default('', true) }}"
+      - obj: "p2b4"
+        event:
+          "down":
+            - service: "media_player.media_previous_track"
+              target:
+                entity_id: "media_player.living_room"
+      - obj: "p2b5"
+        properties:
+          "text": "{% if is_state('media_player.living_room', 'playing') %}⏸{% else %}▶{% endif %}"
+        event:
+          "down":
+            - service: "media_player.media_play_pause"
+              target:
+                entity_id: "media_player.living_room"
+      - obj: "p2b6"
+        event:
+          "down":
+            - service: "media_player.media_next_track"
+              target:
+                entity_id: "media_player.living_room"
+      - obj: "p3b2"
+        properties:
+          "text": "{% set raw_hrs = states('sensor.bambu_p1s_remaining_time') |\n float(0) %} {% set total_mins = (raw_hrs * 60) | int(0) %} {% set hrs =\n        total_mins // 60 %} {% set mins = total_mins % 60 %} {% if hrs > 0 %}\n           {{ hrs }}h {{ mins }}m\n        {% else %}\n           {{ mins }}m\n        {% endif %}"
+      - obj: "p3b3"
+        properties:
+          "text": "{{ states('sensor.bambu_p1s_current_layer') }}/{{states('sensor.bambu_p1s_total_layer_count') }}"
+      - obj: "p3b4"
+        properties:
+          "text": "{{ states('sensor.bambu_p1s_print_progress') }}%"
+      - obj: "p3b9"
+        properties:
+          "text": "{{ states('sensor.bambu_p1s_nozzle_temperature') }}°C"
+      - obj: "p3b11"
+        properties:
+          "text": "{{ states('sensor.bambu_p1s_bed_temperature') }}°C"

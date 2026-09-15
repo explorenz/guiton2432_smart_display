@@ -1,0 +1,510 @@
+/* Guition JC2432W328 openHASP Desk Display - Stylesheet */
+/* Flat, old-school design mirroring the plate UI itself: solid black panels,
+   bold plain type, flat accent colors. No gradients, no blur, no glow. */
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-card: #0d0d0d;
+  --bg-card-hover: #151515;
+  --border-color: #333333;
+  --text-main: #f5f5f5;
+  --text-muted: #999999;
+  --accent-green: #4caf50;
+  --accent-orange: #ff9138;
+  --accent-blue: #4a7fe8;
+  --accent-red: #e05252;
+  --accent-white: #ffffff;
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', Consolas, Monaco, monospace;
+  --radius-lg: 4px;
+  --radius-md: 3px;
+  --radius-sm: 2px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header & Nav */
+header {
+  border-bottom: 1px solid var(--border-color);
+  background: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.brand-icon {
+  width: 32px;
+  height: 32px;
+  background: #141414;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--text-main);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent-green);
+  color: #000000;
+  border: 1px solid var(--accent-green);
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #5cc161;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  background: var(--bg-card-hover);
+}
+
+/* Hero Section */
+.hero {
+  padding: 64px 0 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.badge-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-actions .btn-sm {
+  padding: 12px 22px;
+  font-size: 1rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.section-title h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+/* Live Look Showcase - real photo with screenshots masked onto the physical screen */
+.showcase-section {
+  padding: 32px 0 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.showcase-track {
+  position: relative;
+  height: 400vh;
+}
+
+.showcase-stage {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 0;
+}
+
+.showcase-photo-wrap {
+  position: relative;
+  width: min(90vw, calc((100vh - 120px) * 4 / 3), 900px);
+}
+
+.showcase-photo {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-lg);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Bounding box of the physical LCD's four corners within the photo.
+   Each .showcase-page is perspective-warped (matrix3d, computed in script.js)
+   from this rectangle onto those exact corners, so screen content - not just
+   its outline - matches the camera angle the photo was taken at. */
+.showcase-screen-overlay {
+  position: absolute;
+  left: 34.73%;
+  top: 34.02%;
+  width: 43%;
+  height: 42%;
+  overflow: hidden;
+}
+
+.showcase-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+.showcase-page.active {
+  opacity: 1;
+}
+
+.showcase-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.showcase-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.showcase-dot:hover,
+.showcase-dot.active {
+  background: var(--bg-card-hover);
+  border-color: var(--text-muted);
+  color: var(--text-main);
+}
+
+/* Features Grid */
+.features-section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: var(--text-muted);
+  background: var(--bg-card-hover);
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* OpenHASP Studio Spotlight */
+.studio-banner {
+  margin: 56px 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.studio-info {
+  max-width: 600px;
+}
+
+.studio-info h2 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.studio-info p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 22px;
+}
+
+/* Code & Config Section */
+.code-section {
+  padding: 56px 0;
+}
+
+.code-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  overflow-x: auto;
+}
+
+.code-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.code-tab.active {
+  color: var(--text-main);
+  border-color: var(--border-color);
+  background: var(--bg-card);
+}
+
+.code-block-wrapper {
+  position: relative;
+  background: #000000;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-card);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.copy-btn:hover {
+  background: var(--bg-card-hover);
+}
+
+pre {
+  padding: 20px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: #dddddd;
+  line-height: 1.5;
+}
+
+.code-panel {
+  display: none;
+}
+
+.code-panel.active {
+  display: block;
+}
+
+/* Hardware Table */
+.hardware-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.hardware-table th, .hardware-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hardware-table th {
+  background: #141414;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.hardware-table td {
+  color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 36px 0;
+  margin-top: 56px;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+}
+
+footer a:hover {
+  border-color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .studio-banner { flex-direction: column; text-align: center; }
+  .nav-links { display: none; }
+}

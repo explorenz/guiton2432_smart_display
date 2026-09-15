@@ -1,0 +1,62 @@
+# Automations for Moodlight notifications on Guition JC2432W328
+# Uses onboard RGB Moodlight to signal status (BambuLab, Claude limit alerts, Climate alerts)
+
+- id: 'moodlight_bambu_printing'
+  alias: 'Moodlight - BambuLab Printing Status'
+  trigger:
+    - platform: state
+      entity_id: sensor.bambu_p1s_print_status
+  action:
+    - choose:
+        # Printing -> Pulse Orange / Warm Glow
+        - conditions:
+            - condition: state
+              entity_id: sensor.bambu_p1s_print_status
+              state: 'RUNNING'
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.jc2432w328_desk_moodlight
+              data:
+                rgb_color: [255, 152, 0]
+                brightness: 180
+
+        # Finished -> Glowing Green
+        - conditions:
+            - condition: state
+              entity_id: sensor.bambu_p1s_print_status
+              state: 'FINISH'
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.jc2432w328_desk_moodlight
+              data:
+                rgb_color: [76, 175, 80]
+                brightness: 255
+
+        # Error / Failed -> Red Flash
+        - conditions:
+            - condition: state
+              entity_id: sensor.bambu_p1s_print_status
+              state: 'FAILED'
+          sequence:
+            - service: light.turn_on
+              target:
+                entity_id: light.jc2432w328_desk_moodlight
+              data:
+                rgb_color: [244, 67, 54]
+                brightness: 255
+
+- id: 'moodlight_claude_usage_alert'
+  alias: 'Moodlight - Claude API High Usage Warning'
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.claude_daily_budget_percent
+      above: 85
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.jc2432w328_desk_moodlight
+      data:
+        rgb_color: [156, 39, 176] # Purple alert
+        brightness: 200

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guition JC2432W328 Desk Display — openHASP + Home Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav-content">
+      <a href="#" class="brand">
+        <div class="brand-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <span>JC2432W328 openHASP</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#showcase">Live Look</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#studio">openHASP Studio</a></li>
+        <li><a href="#setup">Setup & Config</a></li>
+      </ul>
+      <div style="display: flex; gap: 10px;">
+        <a href="https://open-hasp-studio.vercel.app/" target="_blank" class="btn-sm btn-primary">Open UI Studio</a>
+        <a href="https://github.com" target="_blank" class="btn-sm btn-secondary">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge-row">
+        <span class="badge">openHASP 0.7.0</span>
+        <span class="badge">Home Assistant Ready</span>
+        <span class="badge">Onboard Moodlight LED</span>
+        <span class="badge">Built with my own openHASP Studio</span>
+      </div>
+      <h1>Guition JC2432W328 Smart Desk Display</h1>
+      <p>
+        A powerful, affordable \$15 ESP32 capacitive touch desk display running openHASP. Real-time Home Assistant integration for room climate, Claude AI usage, BambuLab 3D printer status, and RGB moodlight notification alerts.
+      </p>
+      <div class="hero-actions">
+        <a href="https://open-hasp-studio.vercel.app/" target="_blank" class="btn-sm btn-primary">
+          Try openHASP Studio (built by me)
+        </a>
+        <a href="#case" class="btn-sm btn-secondary">
+          3D Printable Case (MakerWorld coming soon)
+        </a>
+        <a href="https://www.openhasp.com/0.7.0/hardware/guition/jc2432w328/" target="_blank" class="btn-sm btn-secondary">
+          openHASP Hardware Doc
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Look Showcase -->
+  <section id="showcase" class="showcase-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>What It Actually Looks Like</h2>
+        <p>A real photo of the display running on my desk — scroll to flip through each screen, or tap the dots.</p>
+      </div>
+    </div>
+
+    <div class="showcase-track">
+      <div class="showcase-stage">
+        <div class="showcase-photo-wrap">
+          <img class="showcase-photo" src="ref_images/Screen_front_on.jpg" alt="Guition JC2432W328 desk display photographed on my desk, running openHASP" draggable="false">
+          <div class="showcase-screen-overlay">
+            <img class="showcase-page active" data-page="1" src="plate_screenshots/home.bmp" alt="Home page: date, temperature and room climate tiles" draggable="false">
+            <img class="showcase-page" data-page="2" src="plate_screenshots/Bambulab.bmp" alt="BambuLab page: print progress, layer count and temperatures" draggable="false">
+            <img class="showcase-page" data-page="3" src="plate_screenshots/Claude.bmp" alt="Claude page: current and weekly session usage bars" draggable="false">
+            <img class="showcase-page" data-page="4" src="plate_screenshots/Sonos.bmp" alt="Sonos page: now playing track and transport controls" draggable="false">
+          </div>
+        </div>
+        <div class="showcase-dots">
+          <button class="showcase-dot active" data-page="1" aria-label="Home page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></button>
+          <button class="showcase-dot" data-page="2" aria-label="BambuLab page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
+          <button class="showcase-dot" data-page="3" aria-label="Claude page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/><line x1="20" y1="15" x2="23" y2="15"/></svg></button>
+          <button class="showcase-dot" data-page="4" aria-label="Sonos page"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Key Project Highlights</h2>
+        <p>Built for efficiency, elegance, and deep Home Assistant integration.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3>Guition JC2432W328 CYD</h3>
+          <p>ESP32 dual-core processor with a crisp 2.8" 240x320 capacitive touch LCD. Powered via USB-C on your desk.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg></div>
+          <h3>RGB Moodlight Status LED</h3>
+          <p>Utilize the built-in RGB hardware LED as an ambient status halo on your desk. Instantly see print completions or usage warnings.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+          <h3>openHASP Studio — Built by Me</h3>
+          <p>I created <a href="https://open-hasp-studio.vercel.app/" target="_blank" style="color: var(--accent-cyan);">openHASP Studio</a>, a visual drag-and-drop editor for openHASP layouts, and used it to design these pages instead of hand-writing JSON coordinates. Still a work in progress, but fully functional.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L2 19l3 3 7.3-7.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.9-2.9z"/></svg></div>
+          <h3>Firmware Contributor</h3>
+          <p>I contributed to the openHASP firmware build files that bring official support for the Guition JC2432W328 hardware, including this display's pinout and moodlight configuration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div>
+          <h3>Home Assistant & MQTT</h3>
+          <p>Native MQTT integration with openHASP custom component. Effortless two-way state binding with zero lag.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="1" y1="15" x2="4" y2="15"/><line x1="20" y1="15" x2="23" y2="15"/></svg></div>
+          <h3>Claude AI Usage Tracker</h3>
+          <p>Track daily API calls, token burn, and total cost directly on your desk to stay informed on AI resource consumption.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
+          <h3>BambuLab 3D Printer Sync</h3>
+          <p>Live progress percentage, nozzle/bed temperatures, subtask name, and ETA updates straight from your BambuLab 3D printer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OpenHASP Studio Spotlight -->
+  <section id="studio" class="container">
+    <div class="studio-banner">
+      <div class="studio-info">
+        <h2>openHASP Studio — a tool I'm building</h2>
+        <p>
+          Tired of writing openHASP UIs as raw JSON, I built <strong>openHASP Studio</strong> myself — a visual drag-and-drop editor for openHASP touch plates. It's still a work in progress, but already functional enough that I used it to design every screen on this display.
+        </p>
+        <a href="https://open-hasp-studio.vercel.app/" target="_blank" class="btn-sm btn-primary" style="padding: 12px 24px; font-size: 1rem;">
+          Try openHASP Studio
+        </a>
+      </div>
+      <div class="studio-icon"><svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+    </div>
+  </section>
+
+  <!-- 3D Printed Case Section -->
+  <section id="case" class="container" style="margin: 40px auto 60px;">
+    <div class="feature-card" style="text-align: center; padding: 40px;">
+      <div style="margin-bottom: 16px; color: var(--text-muted);"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
+      <h2>3D Printed Desk Stand Enclosure</h2>
+      <p style="max-width: 600px; margin: 12px auto 20px; color: var(--text-muted);">
+        A custom 3D printable desktop enclosure designed specifically for the Guition JC2432W328 with capacitive touch and rear diffuser window for the moodlight LED glow.
+      </p>
+      <button class="btn-sm btn-secondary" disabled style="opacity: 0.7; cursor: default;">
+        MakerWorld 3D Model Link (Publishing Soon)
+      </button>
+    </div>
+  </section>
+
+  <!-- Setup & Configuration Code Tabs -->
+  <section id="setup" class="code-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Setup & Configuration</h2>
+        <p>Copy configuration snippets for your openHASP plate and Home Assistant automations.</p>
+      </div>
+
+      <div class="code-tabs">
+        <button class="code-tab active" data-code="pages">pages.jsonl</button>
+        <button class="code-tab" data-code="openhasp">openhasp.yaml (HA)</button>
+        <button class="code-tab" data-code="automations">automations.yaml (Moodlight)</button>
+        <button class="code-tab" data-code="pinout">Hardware Pinout</button>
+      </div>
+
+      <!-- pages.jsonl Panel -->
+      <div class="code-panel active" id="code-pages">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>openhasp/pages.jsonl</span>
+            <button class="copy-btn" data-copy="pages">Copy Code</button>
+          </div>
+          <pre><code data-source="openhasp/pages.jsonl">Loading…</code></pre>
+        </div>
+      </div>
+
+      <!-- openhasp.yaml Panel -->
+      <div class="code-panel" id="code-openhasp">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>home-assistant/openhasp.yaml</span>
+            <button class="copy-btn" data-copy="openhasp">Copy Code</button>
+          </div>
+          <pre><code data-source="home-assistant/openhasp.yaml">Loading…</code></pre>
+        </div>
+      </div>
+
+      <!-- automations.yaml Panel -->
+      <div class="code-panel" id="code-automations">
+        <div class="code-block-wrapper">
+          <div class="code-header">
+            <span>home-assistant/automations.yaml</span>
+            <button class="copy-btn" data-copy="automations">Copy Code</button>
+          </div>
+          <pre><code data-source="home-assistant/automations.yaml">Loading…</code></pre>
+        </div>
+      </div>
+
+      <!-- Hardware Pinout Panel -->
+      <div class="code-panel" id="code-pinout">
+        <table class="hardware-table">
+          <thead>
+            <tr>
+              <th>Feature / Component</th>
+              <th>ESP32 GPIO Pin</th>
+              <th>openHASP Configuration Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Moodlight Red (RGB LED)</td>
+              <td>GPIO 4</td>
+              <td>Configure in GPIO Settings as Mood Red (Group 1)</td>
+            </tr>
+            <tr>
+              <td>Moodlight Green (RGB LED)</td>
+              <td>GPIO 16</td>
+              <td>Configure in GPIO Settings as Mood Green (Group 1)</td>
+            </tr>
+            <tr>
+              <td>Moodlight Blue (RGB LED)</td>
+              <td>GPIO 17</td>
+              <td>Configure in GPIO Settings as Mood Blue (Group 1)</td>
+            </tr>
+            <tr>
+              <td>TFT Display Backlight</td>
+              <td>GPIO 21</td>
+              <td>PWM backlight dimming control</td>
+            </tr>
+            <tr>
+              <td>Capacitive Touch (GT911)</td>
+              <td>SDA: GPIO 33 | SCL: GPIO 32</td>
+              <td>I2C Touch controller interface</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        Guition JC2432W328 openHASP Desk Display Project | Powered by <a href="https://www.openhasp.com/" target="_blank">openHASP</a> & <a href="https://www.home-assistant.io/" target="_blank">Home Assistant</a>
+      </p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">
+        UI designed with <a href="https://open-hasp-studio.vercel.app/" target="_blank">openHASP Studio</a>, a tool I built. I also contributed to the openHASP firmware build files for this hardware — see the <a href="https://www.openhasp.com/0.7.0/hardware/guition/jc2432w328/" target="_blank">official docs</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
